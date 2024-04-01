@@ -23,7 +23,6 @@ const styles = StyleSheet.create({
     display: 'grid',
     placeItems: 'center',
     height: '100vh',
-    width: '90vw',
     gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
     gridGap: 20,
   },
