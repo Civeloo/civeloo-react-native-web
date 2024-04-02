@@ -7,7 +7,7 @@ export function Footer(props) {
     const copyright = `${companyName} © ${year}`;
     const zelda = "https://github.com/DeGsoft";
 
-    return (<View style={props?.styles}>
+    return (<View style={props?.style}>
         <footer>
             <a style={styles.a} href={zelda}>{ copyright }</a>
         </footer>

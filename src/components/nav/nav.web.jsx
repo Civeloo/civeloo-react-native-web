@@ -2,7 +2,6 @@ import { Link } from "expo-router";
 import { Pressable, Text, View } from "react-native";
 import "./nav.web.css";
 
-
 const NavLink = ({ href, text }) => {
     return (
         <Link href={href} asChild>

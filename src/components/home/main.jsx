@@ -10,7 +10,7 @@ export function Main(props) {
 
     const P = () => text.map((t, index) => <p key={index} >{t}</p>);
 
-    return (<View style={props?.styles}>
+    return (<View style={props?.style}>
         <main>
             <P />
         </main>

@@ -1,12 +1,19 @@
 import { Slot } from 'expo-router';
 import Nav from '../components/nav/nav';
 import { StyleSheet, View } from 'react-native';
+import { Footer, Intro } from '../components';
 
 export default function Layout() {
     return (
         <View style={styles.layout}>
             <Nav />
-            <Slot />
+            <View style={styles.introContainer}>
+                <Intro />
+            </View>
+            <View style={{ paddingHorizontal: 20, }}>
+                <Slot />
+            </View>
+            <Footer  />
         </View>
     );
 }
@@ -14,8 +21,14 @@ export default function Layout() {
 const styles = StyleSheet.create({
     layout: {
         backgroundColor: 'black',
-        height: '100%',
         width: '100%',
-        paddingHorizontal: 20,
+        height: '100%',
+
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    introContainer: {
+        position: 'absolute',     
     },
 });
