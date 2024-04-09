@@ -7,12 +7,12 @@ export default function Layout() {
     return (
         <View style={styles.layout}>
             <Nav />
-            <View style={styles.introContainer}>
+            {/* <View style={styles.introContainer}>
                 <Intro />
-            </View>
-            <View style={{ paddingHorizontal: 20, }}>
+            </View> */}
+            {/* <View style={{ paddingHorizontal: 20, }}> */}
                 <Slot />
-            </View>
+            {/* </View> */}
             <Footer  />
         </View>
     );
@@ -21,14 +21,7 @@ export default function Layout() {
 const styles = StyleSheet.create({
     layout: {
         backgroundColor: 'black',
-        width: '100%',
-        height: '100%',
-
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "space-between",
-    },
-    introContainer: {
-        position: 'absolute',     
+        color: "white",
+        fontFamily: "sans-serif",
     },
 });

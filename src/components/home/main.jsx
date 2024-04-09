@@ -1,4 +1,4 @@
-import { View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 export function Main(props) {
     const text = [
@@ -10,9 +10,17 @@ export function Main(props) {
 
     const P = () => text.map((t, index) => <p key={index} >{t}</p>);
 
-    return (<View style={props?.style}>
+    return (<View style={styles.container}>
         <main>
             <P />
         </main>
     </View>);
 }
+
+const styles = StyleSheet.create({
+    container: {
+        display: 'grid',
+        placeItems: 'center',
+        height: '100vh',
+    },
+});

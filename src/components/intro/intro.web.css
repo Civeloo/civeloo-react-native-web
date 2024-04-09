@@ -1,0 +1,16 @@
+@media (width > 600px) {
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      } 
+  }
+
+.text {
+  color: #ffffff;
+  font-size: 2rem;
+  text-align: center;
+  z-index: 1;
+}
+
