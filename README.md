@@ -70,20 +70,18 @@ npx yarn expo start -c
 ```
 # Build
 ```bash
-npx expo export:web
 npx yarn expo export --platform web
 ```
 # Run
 ```bash
-npx serve web-build --single
 npx serve dist
 ```
 # Deploy
 ```bash
 # Deploy to staging
-npx netlify deploy --dir web-build
+npx netlify deploy --dir dist
 # Deploy to production
-npx netlify deploy --prod --dir web-build
+npx netlify deploy --prod --dir dist
 
 ```
 #
