@@ -22,5 +22,9 @@ const styles = StyleSheet.create({
         display: 'grid',
         placeItems: 'center',
         height: '100vh',
+        paddingHorizontal: 20,
+        maxWidth: 1024,
+        margin:'auto',
+        fontSize: 20,
     },
 });

@@ -1,23 +1,27 @@
-import { View, StyleSheet } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
-export function Footer(props) {
+export function Footer() {
     const date = new Date();
     const year = date.getFullYear();
     const companyName = "DeGsoft";
     const copyright = `${companyName} © ${year}`;
     const zelda = "https://github.com/DeGsoft";
 
-    return (<View style={props?.style}>
+    return (<View style={styles.container}>
         <footer>
-            <a style={styles.a} href={zelda}>{ copyright }</a>
+            <Text style={styles.a} href={zelda}>{copyright}</Text>
         </footer>
-        </View>);
+    </View>);
 }
 
 const styles = StyleSheet.create({
-    a:{
+    container: {
+        top: -20,
+        display: 'grid',
+        placeItems: 'center',
+    },
+    a: {
         textDecorationLine: 'none',
         color: "white",
-        fontWeight: "bold",
-      },
-    });
+    },
+});

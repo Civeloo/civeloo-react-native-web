@@ -1,12 +1,24 @@
 .nav-bar {
     position: sticky;
-    top: 0px;
-    z-index: 1;
-    background-color: 'transparent';
+    top: 0;
+    z-index: 10;
+    
+    animation: blur linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+}
+
+@keyframes blur {
+    from {
+        backdrop-filter: blur(0px);
+    }
+    to {
+        backdrop-filter: blur(10px);
+    }
 }
 
 .nav-container {
-    height: 50px;
+    height: 40px;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -26,5 +38,6 @@
     color: white;
     text-decoration: none;
     padding: 10px;
-    margin: 0 10px;
+    margin: 10px 10px;
+    font-size: medium;
 }
