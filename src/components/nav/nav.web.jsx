@@ -32,6 +32,7 @@ const NavBar = () => {
                 _: "nav-button",
             }}>
                 <NavLink href="/about" text="About" />
+                <NavLink href="/contact" text="Contact" />
             </View>
         </View>
     </View>);

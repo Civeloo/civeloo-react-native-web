@@ -7,6 +7,7 @@ npx yarn create expo-app
 npx yarn add react-native-web@~0.19.6 react-dom@18.2.0 @expo/webpack-config
 npx yarn expo install expo-router react-native-safe-area-context react-native-screens expo-linking expo-constants expo-status-bar react-native-gesture-handler
 npx yarn expo customize metro.config.js
+npx yarn add formik
 ```
 
 # Expo Router
