@@ -148,3 +148,4 @@ package-lock.json
 .metro-health-check*
 # Local Netlify folder
 .netlify
+.env
