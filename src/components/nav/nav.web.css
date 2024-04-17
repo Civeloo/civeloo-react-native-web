@@ -1,0 +1,43 @@
+.nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    
+    animation: blur linear both;
+    animation-timeline: scroll();
+    animation-range: 0 100px;
+}
+
+@keyframes blur {
+    from {
+        backdrop-filter: blur(0px);
+    }
+    to {
+        backdrop-filter: blur(10px);
+    }
+}
+
+.nav-container {
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 50px;
+}
+
+.nav-button {
+    display:flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    justify-content: center;
+    margin-left: auto;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    margin: 10px 10px;
+    font-size: medium;
+}
