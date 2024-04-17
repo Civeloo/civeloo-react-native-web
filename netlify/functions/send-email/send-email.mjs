@@ -14,7 +14,56 @@ const handler = async (event) => {
     subject: `${body.name} sent you a message from civeloo.com`,
     text: body.details,
   }
-
+/*
+  Response {
+    [Symbol(realm)]: null,
+    [Symbol(state)]: {
+      aborted: false,
+      rangeRequested: false,
+      timingAllowPassed: true,
+      requestIncludesCredentials: true,
+      type: 'default',
+      status: 200,
+      timingInfo: {
+        startTime: 235.59394400002202,
+        redirectStartTime: 0,
+        redirectEndTime: 0,
+        postRedirectStartTime: 235.59394400002202,
+        finalServiceWorkerStartTime: 0,
+        finalNetworkResponseStartTime: 0,
+        finalNetworkRequestStartTime: 0,
+        endTime: 0,
+        encodedBodySize: 45,
+        decodedBodySize: 45,
+        finalConnectionTimingInfo: null
+      },
+      cacheState: '',
+      statusText: 'OK',
+      headersList: HeadersList {
+        cookies: null,
+        [Symbol(headers map)]: [Map],
+        [Symbol(headers map sorted)]: null
+      },
+      urlList: [ [URL] ],
+      body: { stream: undefined }
+    },
+    [Symbol(headers)]: HeadersList {
+      cookies: null,
+      [Symbol(headers map)]: Map(9) {
+        'ratelimit-policy' => [Object],
+        'ratelimit-limit' => [Object],
+        'ratelimit-remaining' => [Object],
+        'ratelimit-reset' => [Object],
+        'content-type' => [Object],
+        'content-length' => [Object],
+        'etag' => [Object],
+        'date' => [Object],
+        'server' => [Object]
+      },
+      [Symbol(headers map sorted)]: null
+    }
+  }
+  */
   const res = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: {
@@ -24,11 +73,12 @@ const handler = async (event) => {
     body: JSON.stringify(descriptor),
   });
 
-  console.log('res',res)
+  // console.log('res', res)
 
-  if (res.ok) {
+  // if (res.ok) {
+  if (res) {
     const data = await res.json();
-
+    console.log('data', data)
     return {
       statusCode: 200,
       body: data,
