@@ -3,6 +3,8 @@ import React from 'react';
 import { Pressable, StyleSheet, Text, TextInput, View } from 'react-native';
 import * as Yup from 'yup';
 
+const SEND_EMAIL = process.env.EXPO_PUBLIC_SEND_EMAIL;
+
 export function ContactForm() {
 
     const initialValues = {
@@ -18,10 +20,9 @@ export function ContactForm() {
             .required('Required'),
     });
 
-    const handleSubmit = async (values) => {
-        console.log(values);
-        // https://civeloo.com/.netlify/functions/send-email        
-        fetch('/.netlify/functions/send-email', {
+    const handleSubmit = (values, { resetForm }) => {
+        resetForm();
+        fetch(SEND_EMAIL, {
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
@@ -34,31 +35,16 @@ export function ContactForm() {
             }),
         }).then((res) => {
             if (res.status >= 400) {
-                // swal({
-                //   title: 'Oy vey...',
-                //   text: 'Message wasn\'t sent due to internal server error :-(',
-                //   type: 'error',
-                // })
                 console.error('Message wasn\'t sent due to internal server error :-(')
             }
             else {
-                // swal({
-                //   title: 'Thank you for getting in touch!',
-                //   text: 'We\'ll contact you shortly :-)',
-                //   type: 'success',
-                // })
                 console.log('Message sent successfully!')
             }
         }).catch((err) => {
-            // swal({
-            //   title: 'Oy vey...',
-            //   text: 'Message wasn\'t sent due to internal server error :-(',
-            //   type: 'error',
-            // })
             console.error('error: ', err)
         });
     };
-    
+
     return (<View style={styles.container}>
 
         <Formik
@@ -66,13 +52,12 @@ export function ContactForm() {
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
         >
-            {({ handleChange, handleBlur, handleSubmit, values, errors, touched }) => (
+            {({ handleChange, handleBlur, handleSubmit, resetForm, values, errors, touched }) => (
                 <View style={styles.form}>
-
+                    <Text style={styles.title}>
+                        Write Us
+                    </Text>
                     <View style={styles.labelContainer}>
-                        <Text style={styles.label}>
-                            Email:
-                        </Text>
                         {errors.email && touched.email ? <Text style={styles.error}>{errors.email}</Text> : null}
                     </View>
                     <TextInput
@@ -80,12 +65,10 @@ export function ContactForm() {
                         onChangeText={handleChange('email')}
                         onBlur={handleBlur('email')}
                         value={values.email}
+                        placeholder='Email'
                     />
 
                     <View style={styles.labelContainer}>
-                        <Text style={styles.label}>
-                            Message:
-                        </Text>
                         {errors.message && touched.message ? <Text style={styles.error}>{errors.message}</Text> : null}
                     </View>
                     <TextInput
@@ -94,6 +77,7 @@ export function ContactForm() {
                         onChangeText={handleChange('message')}
                         onBlur={handleBlur('message')}
                         value={values.message}
+                        placeholder='Message'
                     />
 
                     <Pressable
@@ -119,43 +103,48 @@ const styles = StyleSheet.create({
         margin: 'auto',
         color: 'white',
     },
+    title: {
+        fontSize: 'x-large',
+        marginBottom: 20,
+        color: 'white',
+        textAlign: 'center',
+    },
     form: {
         width: 300,
     },
     labelContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginBottom: 10,
+        height: 20,
     },
     label: {
         fontSize: 16,
         color: 'white',
     },
     error: {
-        // textAlign: 'right',
+        textAlign: 'right',
         fontSize: 14,
         color: 'gray',
     },
     input: {
         height: 40,
-        marginBottom: 20,
         paddingHorizontal: 10,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        color: 'gray',
         borderRadius: 5,
     },
     textArea: {
         height: 100,
         marginBottom: 20,
         padding: 10,
-        backgroundColor: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+        color: 'gray',
         borderRadius: 5,
     },
     button: {
         height: 40,
         textAlign: 'center',
         lineHeight: 40,
-        backgroundColor: 'gray',
-        color: 'white',
+        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+        color: 'gray',
         borderRadius: 5,
         fontSize: 16,
     },
