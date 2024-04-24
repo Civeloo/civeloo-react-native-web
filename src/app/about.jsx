@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     gridGap: 20,
   },
   text: {
-    fontSize: 'calc(0.8em + 1vw)',
+    fontSize: 'calc(0.7em + 1vw)',
     color: 'white',
   },
 });
