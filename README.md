@@ -80,10 +80,7 @@ npx serve dist
 ```
 # Deploy
 ```bash
-# Deploy to staging
-npx netlify deploy --dir dist
-# Deploy to production
-npx netlify deploy --prod --dir dist
+
 ```
 #
 # Author 
