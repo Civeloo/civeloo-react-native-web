@@ -29,9 +29,9 @@ export function ContactForm() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                name: values.email,
+                subject: values.email,
                 email: values.email,
-                details: values.message,
+                text: values.message,
             }),
         }).then((res) => {
             if (res.status >= 400) {
