@@ -57,7 +57,6 @@ module.exports = function (api) {
   api.cache(true);
   return {
     presets: ['babel-preset-expo'],
-    plugins: ['expo-router/babel'],
   };
 };
 ```
@@ -80,7 +79,7 @@ npx serve dist
 ```
 # Deploy
 ```bash
-
+./deploy.sh
 ```
 #
 # Author 

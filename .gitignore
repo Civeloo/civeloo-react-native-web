@@ -151,3 +151,6 @@ package-lock.json
 .env
 ..env.un~
 .env~
+
+.wrangler
+wrangler.toml

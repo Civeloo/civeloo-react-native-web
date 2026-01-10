@@ -7,7 +7,7 @@ import { ScrollViewStyleReset } from 'expo-router/html';
 export default function Root({ children }) {
   return (
     <html lang="en">
-      <head>        
+      <head>
         <meta charSet="utf-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -19,6 +19,11 @@ export default function Root({ children }) {
         <ScrollViewStyleReset />
 
         {/* Add any additional <head> elements that you want globally available on web... */}
+        <script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5936870168400169"
+          crossOrigin="anonymous"
+        />
       </head>
       <body>{children}</body>
     </html>
