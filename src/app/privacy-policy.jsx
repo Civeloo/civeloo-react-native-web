@@ -94,10 +94,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     padding: 20,
     borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 10,
+    boxShadow: '0px 2px 10px rgba(0,0,0,0.1)',
   },
   heading1: {
     fontSize: 24,
